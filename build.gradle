@@ -9,8 +9,7 @@ buildscript {
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
   }
   dependencies {
-
-
+    // Adaugă aici orice dependințe necesare pentru buildscript
   }
 }
 
@@ -29,7 +28,8 @@ allprojects {
 
 configure(subprojects) {
   apply plugin: 'java-library'
-  sourceCompatibility = 8
+  sourceCompatibility = 21 // Schimbat de la 8 la 21
+  targetCompatibility = 21 // Adăugat pentru compatibilitate cu Java 21
 
   // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/
   // The article can be helpful when using assets.txt in your project.
@@ -53,6 +53,7 @@ configure(subprojects) {
 
   compileJava {
     options.incremental = true
+    options.release = 21 // Schimbat de la 8 la 21
   }
 }
 
